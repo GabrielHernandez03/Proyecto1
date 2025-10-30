@@ -6,8 +6,15 @@ package proyectorss_gabriel.Estructuras;
 
 /**
  *
- * @author andre
+ * @author gabriel
  */
 public class Nodo {
+    int dato;
+    Nodo pNext;
+
+    public Nodo(int dato) {
+        this.dato = dato;
+        pNext = null;
+    }
     
 }
