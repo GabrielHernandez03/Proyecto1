@@ -9,5 +9,24 @@ package proyectorss_gabriel.Estructuras;
  * @author gabriel
  */
 public class Lista {
+    Nodo primero;
+    Nodo ultimo;
+    public Lista() {
+        primero = null;
+    }
     
+    
+    public void insertar(Nodo nodo){
+        if(primero == null){
+            primero = ultimo = nodo;
+        }else{
+            ultimo.pNext = nodo;
+            ultimo = nodo;
+        }
+    }
+    
+    
+    
+    
+      
 }
