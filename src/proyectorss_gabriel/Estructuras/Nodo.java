@@ -9,10 +9,10 @@ package proyectorss_gabriel.Estructuras;
  * @author gabriel
  */
 public class Nodo {
-    int dato;
+    Usuario dato;
     Nodo pNext;
 
-    public Nodo(int dato) {
+    public Nodo(Usuario dato) {
         this.dato = dato;
         pNext = null;
     }
