@@ -38,7 +38,7 @@ public class Grafo {
     public Vertice buscarUsuario(String usuario) {
         if (this.primer_usuario != null) {
             Vertice pAux = this.primer_usuario;
-            while (pAux != null && !pAux.dato.equals(usuario)) {
+            while (pAux != null && !pAux.dato.username.equals(usuario)) {
                 pAux = pAux.sig;
             }
             return pAux;
@@ -47,13 +47,38 @@ public class Grafo {
         }
     }
 
+    public void seguirUsuario(String nuevo_seguidor, String usuario_seguido) {
+        if (primer_usuario == null) {
+            JOptionPane.showMessageDialog(null, "Aun no hay usaurios registrados :(");
+
+        } else {
+            Vertice seguidor = this.buscarUsuario(nuevo_seguidor);
+            Vertice seguido = this.buscarUsuario(usuario_seguido);
+
+            if (seguidor != null && seguido != null) {
+                seguidor.seguidos.insertar(new Nodo(seguido.dato));
+                //profe aqui no pongo una alerta para que, al leer el txt, no spamee alertas al crear las relaciones
+            } else{
+                if(seguidor == null && seguido == null){
+                   JOptionPane.showMessageDialog(null, "Ni el seguidor ni el usuario a seguir han sido encontrados.");  
+                }
+                else if (seguidor == null) {
+                JOptionPane.showMessageDialog(null, "El seguidor no ha sido encontrado.");
+                }else{
+                     JOptionPane.showMessageDialog(null, "El usuario a seguir no ha sido encontrado.");
+                }
+               
+            }
+        }
+    }
+
     public void eliminarUsuario(String usuario) {
         if (this.primer_usuario != null) {
             Vertice pAux = this.primer_usuario;
-            if (pAux.dato.equals(usuario)) {
+            if (pAux.dato.username.equals(usuario)) {
                 this.primer_usuario = this.primer_usuario.sig;
             } else {
-                while (pAux != this.ultimo_usuario && !pAux.sig.dato.equals(usuario)) {
+                while (pAux != this.ultimo_usuario && !pAux.sig.dato.username.equals(usuario)) {
                     pAux = pAux.sig;
                 }
 
@@ -89,7 +114,7 @@ public class Grafo {
             }
             return gafo;
 
-        }else{
+        } else {
             return "Aun no hay usaurios registrados :(";
         }
     }
