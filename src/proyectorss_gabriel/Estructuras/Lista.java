@@ -29,10 +29,10 @@ public class Lista {
     public void eliminar(String usuario) {
         if (primero != null) {
             Nodo pAux = this.primero;
-            if (pAux.dato.equals(usuario)) {
+            if (pAux.dato.username.equals(usuario)) {
                 this.primero = this.primero.pNext;
             } else {
-                while (pAux != this.ultimo && !pAux.pNext.dato.equals(usuario)) {
+                while (pAux != this.ultimo && !pAux.pNext.dato.username.equals(usuario)) {
                     pAux = pAux.pNext;
                 }
 
@@ -46,7 +46,7 @@ public class Lista {
     public Nodo buscar(String usuario) {
         if (this.primero != null) {
             Nodo pAux = this.primero;
-            while (pAux != null && !pAux.dato.equals(usuario)) {
+            while (pAux != null && !pAux.dato.username.equals(usuario)) {
                 pAux = pAux.pNext;
             }
             return pAux;
@@ -60,11 +60,11 @@ public class Lista {
             String seguidos = "Sigue a: ";
             Nodo pAux = this.primero;
             while(pAux != this.ultimo){
-                seguidos += pAux.dato + ", ";
+                seguidos += pAux.dato.username + ", ";
                 pAux = pAux.pNext;
             }
             
-            seguidos += pAux.dato + ".";
+            seguidos += pAux.dato.username + ".";
             return seguidos;
         }else{
             return "No sigue a nadie";
