@@ -6,15 +6,17 @@ package proyectorss_gabriel.Estructuras;
 
 /**
  *
- * @author andre
+ * @author gabriel
  */
 public class Vertice {
-    Nodo dato;
+    Usuario dato;
     Vertice sig;
+    Lista seguidos;
 
-    public Vertice(Nodo dato) {
+    public Vertice(Usuario dato) {
         this.dato = dato;
         this.sig = null;
+        seguidos = new Lista();
     }
     
     
